@@ -1,15 +1,30 @@
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+api:
+  dashboard: false
+
 entryPoints:
   web:
     address: ":80"
-
+    http:
+      redirections:
+        entrypoint:
+          to: websecure
+          scheme: https
   websecure:
     address: ":443"
-
-providers:
-  docker:
-    exposedByDefault: false
 
 tls:
   certificates:
     - certFile: /certs/cert.pem
       keyFile: /certs/key.pem
+
+providers:
+  file:
+    filename: /traefik/routes.yml
+    watch: true
+
+log:
+  level: INFO
