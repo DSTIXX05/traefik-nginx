@@ -6,6 +6,21 @@ http:
       entryPoints:
         - websecure
       tls: {}
+      middlewares:
+        - security-headers
+
+  middlewares:
+    security-headers:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsSeconds: 31536000
+        stsIncludeSubdomains: true
+        customResponseHeaders:
+          X-Powered-By: ""
+          Server: ""
 
   services:
     nginx-service:

@@ -17,6 +17,10 @@ entryPoints:
     address: ":443"
 
 tls:
+  options:
+    default:
+      minVersion: VersionTLS12
+      sniStrict: true
   certificates:
     - certFile: /certs/cert.pem
       keyFile: /certs/key.pem
