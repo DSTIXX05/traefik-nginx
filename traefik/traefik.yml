@@ -10,7 +10,7 @@ entryPoints:
     address: ":80"
     http:
       redirections:
-        entrypoint:
+        entryPoint:
           to: websecure
           scheme: https
   websecure:
