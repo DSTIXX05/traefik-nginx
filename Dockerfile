@@ -1,5 +1,6 @@
 FROM nginx:alpine
 
+# Build custom Nginx image with website files and config
 # Copy custom nginx configuration
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
